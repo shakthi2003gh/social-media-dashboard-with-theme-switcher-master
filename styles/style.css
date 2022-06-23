@@ -26,7 +26,7 @@ html {
   );
 }
 
-[data-light-theme]:root {
+[data-dark="false"]:root {
   --color-primary: hsl(228, 12%, 44%);
   --color-secondary: hsl(230, 17%, 14%);
 
@@ -37,7 +37,7 @@ html {
   --toggle: hsl(230, 22%, 74%);
 }
 
-[data-dark-theme]:root {
+[data-dark="true"]:root {
   --color-primary: hsl(228, 34%, 66%);
   --color-secondary: hsl(0, 0%, 100%);
 
@@ -51,6 +51,92 @@ html {
 /* >Typography */
 body {
   font-family: "Inter", sans-serif;
-  font-size: 14px;
-  color: var(--primary, black);
+  font-size: 1rem;
+  color: var(--color-primary, black);
+  background-color: var(--bg, white);
+}
+
+h1 {
+  font-size: 2.6rem;
+  margin: 0;
+  color: var(--color-secondary);
+}
+
+p,
+span {
+  font-size: 1.5rem;
+}
+
+p {
+  margin-top: 0.8rem;
+}
+
+@media screen and (min-width: 750px) {
+  h1 {
+    font-size: 2.8rem;
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+}
+
+/* >header */
+header {
+  font-weight: bold;
+  padding: 4.5rem 3rem;
+}
+
+.title {
+  margin-bottom: 2rem;
+}
+
+.theme-toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 0;
+  border-top: 1px solid var(--color-primary, black);
+}
+
+#toggle {
+  position: relative;
+  width: 60px;
+  height: 30px;
+  border-radius: 100px;
+  background: var(--toggle);
+}
+
+#toggle span {
+  position: absolute;
+  inset: 4px;
+  width: 22px;
+  height: 22px;
+  border-radius: 100px;
+  background-color: var(--bg);
+}
+
+[data-dark="false"] #toggle span {
+  left: auto;
+}
+
+[data-dark="true"] #toggle span {
+  left: 5px;
+}
+
+@media screen and (min-width: 750px) {
+  header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .title {
+    margin: 0;
+  }
+
+  .theme-toggle {
+    gap: 1.5rem;
+    padding: 0;
+    border: none;
+  }
 }
