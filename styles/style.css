@@ -9,6 +9,7 @@
 
 html {
   font-size: 62.5%;
+  min-width: 375px;
 }
 
 /* >Color palette */
@@ -53,7 +54,10 @@ body {
   font-family: "Inter", sans-serif;
   font-size: 1rem;
   color: var(--color-primary, black);
-  background-color: var(--bg, white);
+  background: linear-gradient(to right, var(--bg-pattern), var(--bg-pattern))
+      no-repeat,
+    linear-gradient(to right, var(--bg), var(--bg));
+  background-size: 100vw 35vh, auto;
 }
 
 h1,
@@ -115,6 +119,12 @@ a {
   p {
     margin-bottom: 0;
   }
+}
+
+/* >main */
+main {
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
 /* >header */
